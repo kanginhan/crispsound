@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/crispsound/static/css/main.8c42ecd3.chunk.css",
+    "main.js": "/crispsound/static/js/main.71a034c0.chunk.js",
+    "main.js.map": "/crispsound/static/js/main.71a034c0.chunk.js.map",
+    "runtime-main.js": "/crispsound/static/js/runtime-main.784d7f63.js",
+    "runtime-main.js.map": "/crispsound/static/js/runtime-main.784d7f63.js.map",
+    "static/js/2.1c67c118.chunk.js": "/crispsound/static/js/2.1c67c118.chunk.js",
+    "static/js/2.1c67c118.chunk.js.map": "/crispsound/static/js/2.1c67c118.chunk.js.map",
+    "index.html": "/crispsound/index.html",
+    "precache-manifest.7759993bbcbd4ac620679b581ceb4e39.js": "/crispsound/precache-manifest.7759993bbcbd4ac620679b581ceb4e39.js",
+    "service-worker.js": "/crispsound/service-worker.js",
+    "static/css/main.8c42ecd3.chunk.css.map": "/crispsound/static/css/main.8c42ecd3.chunk.css.map",
+    "static/js/2.1c67c118.chunk.js.LICENSE": "/crispsound/static/js/2.1c67c118.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.784d7f63.js",
+    "static/js/2.1c67c118.chunk.js",
+    "static/css/main.8c42ecd3.chunk.css",
+    "static/js/main.71a034c0.chunk.js"
+  ]
+}

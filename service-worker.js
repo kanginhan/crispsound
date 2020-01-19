@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/crispsound/precache-manifest.28539b422a6d1c010bb76a9038b90f7d.js"
+  "/crispsound/precache-manifest.0665968cb4b334f3cf060eaac4553107.js"
 );
 
 self.addEventListener('message', (event) => {

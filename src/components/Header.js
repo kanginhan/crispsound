@@ -22,12 +22,12 @@ const WidgetSelectors = styled.div`
   display: flex;
 `;
 
-const widgets = ["colck", "studyTime"];
+const widgets = ["chat", "colck", "studyTime"];
 
 function Header() {
   return (
     <Wrapper>
-      <Title>STUDY SOUND</Title>
+      <Title className="handle">STUDY SOUND</Title>
       <WidgetSelectors>
         {widgets.map((item, i) => (
           <WidgetSelector key={i}>{item}</WidgetSelector>

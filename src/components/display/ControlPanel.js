@@ -20,6 +20,10 @@ const Icon = styled.i`
     opacity: 0.7;
     transition: all 0.2s linear;
   }
+
+  @media (min-width: 1300px) {
+    font-size: 40px;
+  }
 `;
 
 const ControlPanel = () => {
@@ -27,41 +31,28 @@ const ControlPanel = () => {
 
   const toggleFullScreen = () => {
     if (document.fullscreen) {
-      closeFullscreen();
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
     } else {
-      openFullscreen();
+      var elem = document.getElementById("display");
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      }
     }
   };
-
-  function openFullscreen() {
-    var elem = document.getElementById("display");
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) {
-      /* Firefox */
-      elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) {
-      /* Chrome, Safari and Opera */
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) {
-      /* IE/Edge */
-      elem.msRequestFullscreen();
-    }
-  }
-  function closeFullscreen() {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-      /* Firefox */
-      document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) {
-      /* Chrome, Safari and Opera */
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-      /* IE/Edge */
-      document.msExitFullscreen();
-    }
-  }
 
   const skipNext = () => {
     dispatch.video({ type: "NEXT" });
@@ -74,10 +65,7 @@ const ControlPanel = () => {
   return (
     <Panel>
       <Icon className="material-icons">playlist_play</Icon>
-      <Icon
-        className="material-icons"
-        style={{ color: "#f44336", fontSize: "2.3vw" }}
-      >
+      <Icon className="material-icons" style={{ color: "#ff5722" }}>
         favorite
       </Icon>
       <Icon className="material-icons" onClick={toggleFullScreen}>

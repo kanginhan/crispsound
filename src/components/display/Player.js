@@ -13,7 +13,7 @@ const YTPlayer = styled.div`
   height: 100%;
 `;
 
-const Player = () => {
+const Player = ({ children }) => {
   const { video, dispatch } = useContext(context);
 
   const onPlayerReady = e => {
@@ -56,7 +56,8 @@ const Player = () => {
   }, [video.currentVideo]);
 
   return (
-    <Wrapper>
+    <Wrapper id="player_wrap">
+      {children}
       <YTPlayer id="player"></YTPlayer>
     </Wrapper>
   );

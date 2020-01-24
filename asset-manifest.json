@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/crispsound/static/css/main.29eed905.chunk.css",
-    "main.js": "/crispsound/static/js/main.85113638.chunk.js",
-    "main.js.map": "/crispsound/static/js/main.85113638.chunk.js.map",
+    "main.js": "/crispsound/static/js/main.62454d5a.chunk.js",
+    "main.js.map": "/crispsound/static/js/main.62454d5a.chunk.js.map",
     "runtime-main.js": "/crispsound/static/js/runtime-main.784d7f63.js",
     "runtime-main.js.map": "/crispsound/static/js/runtime-main.784d7f63.js.map",
     "static/js/2.f6307ddb.chunk.js": "/crispsound/static/js/2.f6307ddb.chunk.js",
     "static/js/2.f6307ddb.chunk.js.map": "/crispsound/static/js/2.f6307ddb.chunk.js.map",
     "index.html": "/crispsound/index.html",
-    "precache-manifest.b11efefb9df01f16e77f3be6c4d7117b.js": "/crispsound/precache-manifest.b11efefb9df01f16e77f3be6c4d7117b.js",
+    "precache-manifest.1d561b64a53700dfa525a2bfcbabe479.js": "/crispsound/precache-manifest.1d561b64a53700dfa525a2bfcbabe479.js",
     "service-worker.js": "/crispsound/service-worker.js",
     "static/css/main.29eed905.chunk.css.map": "/crispsound/static/css/main.29eed905.chunk.css.map",
     "static/js/2.f6307ddb.chunk.js.LICENSE": "/crispsound/static/js/2.f6307ddb.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.784d7f63.js",
     "static/js/2.f6307ddb.chunk.js",
     "static/css/main.29eed905.chunk.css",
-    "static/js/main.85113638.chunk.js"
+    "static/js/main.62454d5a.chunk.js"
   ]
 }

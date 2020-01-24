@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/crispsound/static/css/main.29eed905.chunk.css",
-    "main.js": "/crispsound/static/js/main.19dc0835.chunk.js",
-    "main.js.map": "/crispsound/static/js/main.19dc0835.chunk.js.map",
+    "main.js": "/crispsound/static/js/main.3ddd35f5.chunk.js",
+    "main.js.map": "/crispsound/static/js/main.3ddd35f5.chunk.js.map",
     "runtime-main.js": "/crispsound/static/js/runtime-main.784d7f63.js",
     "runtime-main.js.map": "/crispsound/static/js/runtime-main.784d7f63.js.map",
-    "static/js/2.f6307ddb.chunk.js": "/crispsound/static/js/2.f6307ddb.chunk.js",
-    "static/js/2.f6307ddb.chunk.js.map": "/crispsound/static/js/2.f6307ddb.chunk.js.map",
+    "static/js/2.78de65c5.chunk.js": "/crispsound/static/js/2.78de65c5.chunk.js",
+    "static/js/2.78de65c5.chunk.js.map": "/crispsound/static/js/2.78de65c5.chunk.js.map",
     "index.html": "/crispsound/index.html",
-    "precache-manifest.3a4ed0c29f41fe4af15b0c5339e48f21.js": "/crispsound/precache-manifest.3a4ed0c29f41fe4af15b0c5339e48f21.js",
+    "precache-manifest.4b65de46ca711dcf008c3b6987485131.js": "/crispsound/precache-manifest.4b65de46ca711dcf008c3b6987485131.js",
     "service-worker.js": "/crispsound/service-worker.js",
     "static/css/main.29eed905.chunk.css.map": "/crispsound/static/css/main.29eed905.chunk.css.map",
-    "static/js/2.f6307ddb.chunk.js.LICENSE": "/crispsound/static/js/2.f6307ddb.chunk.js.LICENSE"
+    "static/js/2.78de65c5.chunk.js.LICENSE": "/crispsound/static/js/2.78de65c5.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.784d7f63.js",
-    "static/js/2.f6307ddb.chunk.js",
+    "static/js/2.78de65c5.chunk.js",
     "static/css/main.29eed905.chunk.css",
-    "static/js/main.19dc0835.chunk.js"
+    "static/js/main.3ddd35f5.chunk.js"
   ]
 }

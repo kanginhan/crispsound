@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a1930a48aead4f0b4287fb0fd1e4c409",
+    "revision": "19d3dcba5799e3fa7d94d5fc02cc8c34",
     "url": "/crispsound/index.html"
   },
   {
-    "revision": "9402599431e40f764e84",
+    "revision": "2ab5c950edbd65bdf2eb",
     "url": "/crispsound/static/css/main.29eed905.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/crispsound/static/js/2.78de65c5.chunk.js.LICENSE"
   },
   {
-    "revision": "9402599431e40f764e84",
-    "url": "/crispsound/static/js/main.3ddd35f5.chunk.js"
+    "revision": "2ab5c950edbd65bdf2eb",
+    "url": "/crispsound/static/js/main.bd2b8910.chunk.js"
   },
   {
     "revision": "e06d29d2cfa71f67b80c",

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useRef } from "react";
 import styled from "styled-components";
 import context from "../../contexts";
 import playlist from "../../utils/playlist";
@@ -15,10 +15,12 @@ const YTPlayer = styled.div`
 
 const Player = ({ children }) => {
   const { video, dispatch } = useContext(context);
+  const ref = useRef({player: null});
 
   const onPlayerReady = e => {
     e.target.playVideo();
     dispatch.video({ type: "SETPLAYER", player: e.target });
+    ref.current.player = e.target;
   };
 
   function onPlayerError(e) {

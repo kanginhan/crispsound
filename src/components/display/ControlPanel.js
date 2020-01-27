@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import context from "../../contexts";
 import styled from "styled-components";
+import { useWindowSize } from "../../utils/hooks";
 
 const Panel = styled.div`
   display: flex;
@@ -28,28 +29,47 @@ const Icon = styled.i`
 
 const ControlPanel = () => {
   const { dispatch } = useContext(context);
+  const ref = useRef({ orientationType: window.screen.orientation.type });
+  const size = useWindowSize();
 
-  const toggleFullScreen = () => {
-    if (document.fullscreen) {
+  useEffect(() => {
+    const orientationType = window.screen.orientation.type;
+    if (orientationType !== ref.current.orientationType) {
+      ref.current.orientationType = orientationType;
+      isFullscreen() && toggleFullScreen();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [size]);
+
+  const isFullscreen = () => {
+    return (
+      document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement
+    );
+  };
+
+  const toggleFullScreen = e => {
+    if (isFullscreen()) {
       if (document.exitFullscreen) {
-        document.exitFullscreen();
+        return document.exitFullscreen();
       } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
+        return document.mozCancelFullScreen();
       } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
+        return document.webkitExitFullscreen();
       } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
+        return document.msExitFullscreen();
       }
     } else {
       var elem = document.getElementById("display");
       if (elem.requestFullscreen) {
-        elem.requestFullscreen();
+        return elem.requestFullscreen();
       } else if (elem.mozRequestFullScreen) {
-        elem.mozRequestFullScreen();
+        return elem.mozRequestFullScreen();
       } else if (elem.webkitRequestFullscreen) {
-        elem.webkitRequestFullscreen();
+        return elem.webkitRequestFullscreen();
       } else if (elem.msRequestFullscreen) {
-        elem.msRequestFullscreen();
+        return elem.msRequestFullscreen();
       }
     }
   };
@@ -68,7 +88,11 @@ const ControlPanel = () => {
       <Icon className="material-icons" style={{ color: "#ff5722" }}>
         favorite
       </Icon>
-      <Icon className="material-icons" onClick={toggleFullScreen}>
+      <Icon
+        className="material-icons"
+        onClick={toggleFullScreen}
+        id="fullscreenBtn"
+      >
         fullscreen
       </Icon>
       <Icon className="material-icons" onClick={skipNext}>

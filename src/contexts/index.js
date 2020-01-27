@@ -1,11 +1,23 @@
 import React, { createContext, useReducer } from "react";
 import playlist from "../utils/playlist";
+import { widgetList } from "../utils/consts";
 
 const Context = createContext();
 
 const widgetReducer = (state, action) => {
   switch (action.type) {
     case "TOGGLE":
+      try {
+        const userSetting = JSON.parse(localStorage[action.name] || "{}");
+        localStorage.setItem(
+          action.name,
+          JSON.stringify({
+            ...userSetting,
+            use: !state[action.name]
+          })
+        );
+      } catch (e) {}
+
       return {
         ...state,
         [action.name]: !state[action.name]
@@ -41,8 +53,19 @@ const videoReducer = (state, action) => {
   }
 };
 
+let initialWidget = {};
+widgetList.forEach(item => {
+  try {
+    if (localStorage[item]) {
+      initialWidget[item] = JSON.parse(localStorage[item]).use;
+    } else {
+      initialWidget[item] = true;
+    }
+  } catch (e) {}
+});
+
 const Provider = ({ children }) => {
-  const [widget, widetDispatch] = useReducer(widgetReducer, {});
+  const [widget, widetDispatch] = useReducer(widgetReducer, initialWidget);
   const [video, videoDispatch] = useReducer(videoReducer, {
     currentVideo: 0
   });

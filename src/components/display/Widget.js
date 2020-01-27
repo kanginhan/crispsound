@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled, { css } from "styled-components";
 import { useWindowSize } from "../../utils/hooks";
+import context from "../../contexts";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -34,17 +35,19 @@ const Wrapper = styled.div`
       `}
 `;
 
-const Widget = ({ children, type, movable, width, height }) => {
+const Widget = ({ children, type, movable, width, height, defaultRatio }) => {
+  const { widget } = useContext(context);
+
   let userSetting;
   try {
     userSetting = JSON.parse(localStorage[`${type}`]);
   } catch (e) {
     userSetting = {};
   }
-  const [xp, setXp] = useState(userSetting.xp);
-  const [yp, setYp] = useState(userSetting.yp);
-  const [xratio, setXratio] = useState(userSetting.xratio);
-  const [yratio, setYratio] = useState(userSetting.yratio);
+  const [xp, setXp] = useState(0);
+  const [yp, setYp] = useState(0);
+  const [xratio, setXratio] = useState(userSetting.xratio || (defaultRatio && defaultRatio.xratio) || 0);
+  const [yratio, setYratio] = useState(userSetting.yratio || (defaultRatio && defaultRatio.yratio) || 0);
   const [drag, setDrag] = useState(false);
   const [org, setOrg] = useState({
     clientX: 0,
@@ -82,10 +85,10 @@ const Widget = ({ children, type, movable, width, height }) => {
   const up = e => {
     setDrag(false);
     userSetting.xratio = xratio;
-    userSetting.xp = xp;
     userSetting.yratio = yratio;
-    userSetting.yp = yp;
-    localStorage.setItem(type, JSON.stringify(userSetting));
+    try {
+      localStorage.setItem(type, JSON.stringify(userSetting));
+    } catch (e) {}
   };
 
   useEffect(() => {
@@ -98,7 +101,7 @@ const Widget = ({ children, type, movable, width, height }) => {
   if (!movable) {
     return (
       <Wrapper movable={false} width={width} height={height}>
-        {children}
+        {widget[type] ? children : null}
       </Wrapper>
     );
   }
@@ -116,7 +119,7 @@ const Widget = ({ children, type, movable, width, height }) => {
       xp={xp}
       yp={yp}
     >
-      {children}
+      {widget[type] ? children : null}
     </Wrapper>
   );
 };

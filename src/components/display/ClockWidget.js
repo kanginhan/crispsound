@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import Widget from "./Widget";
 import styled from "styled-components";
-import context from "../../contexts";
 import Moment from "react-moment";
 
 const Time = styled.div`
@@ -10,16 +9,17 @@ const Time = styled.div`
   font-size: 4vw;
 `;
 
-const ClockWidget = () => {
-  const { widget } = useContext(context);
+const defaultRatio = {
+  xratio: 0.75,
+  yratio: 0.06
+};
 
+const ClockWidget = () => {
   return (
-    <Widget type="colock" movable={true}>
-      {widget.colck ? (
-        <Time>
-          <Moment interval={1000 * 60} format="A hh:mm"></Moment>
-        </Time>
-      ) : null}
+    <Widget type="clock" movable={true} defaultRatio={defaultRatio}>
+      <Time>
+        <Moment interval={1000 * 60} format="A hh:mm"></Moment>
+      </Time>
     </Widget>
   );
 };

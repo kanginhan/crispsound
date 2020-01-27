@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Widget from "./Widget";
 import styled from "styled-components";
-import context from "../../contexts";
 
 const Time = styled.div`
   color: white;
@@ -9,8 +8,12 @@ const Time = styled.div`
   font-size: 4vw;
 `;
 
+const defaultRatio = {
+  xratio: 0.75,
+  yratio: 0.12,
+}
+
 const StudyTimeWidget = () => {
-  const { widget } = useContext(context);
   const [startTime] = useState(new Date());
   const [studyTime, setStudyTime] = useState(0);
 
@@ -44,8 +47,8 @@ const StudyTimeWidget = () => {
   }
 
   return (
-    <Widget type="studyTime" movable={true}>
-      {widget.studyTime ? <Time>{format(studyTime)}</Time> : null}
+    <Widget type="studyTime" movable={true} defaultRatio={defaultRatio}>
+      <Time>{format(studyTime)}</Time>
     </Widget>
   );
 };

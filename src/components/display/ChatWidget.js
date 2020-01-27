@@ -99,16 +99,33 @@ const MWrapper = styled.div`
   padding-top: 5px;
 `;
 
-const initialMessage = {
-  key: uuid(),
-  nickName: "CRISPSOUND",
-  time: new Date(),
-  contents: "Enjoy music with others to help you concentrate and relax"
-};
+const initialMessages = [
+  {
+    key: uuid(),
+    nickName: "CRISPSOUND",
+    time: new Date(),
+    contents: (
+      <a
+        href="https://www.digitaltrends.com/mobile/how-to-play-youtube-in-the-background/"
+        className="title"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Tip: How to listen in mobile background
+      </a>
+    )
+  },
+  {
+    key: uuid(),
+    nickName: "CRISPSOUND",
+    time: new Date(),
+    contents: "Enjoy music with others to help you concentrate and relax"
+  }
+];
 
 const ChatWidget = () => {
   const [nickName, _setNickName] = useState(localStorage.nickName);
-  const [messages, _setMessages] = useState([initialMessage]);
+  const [messages, _setMessages] = useState(initialMessages);
   const [connected, _setConnected] = useState(false);
   const ref = useRef({ nickName, messages, connected, socket: null });
   const setNickName = data => {

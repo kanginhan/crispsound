@@ -1,22 +1,24 @@
 {
   "files": {
     "main.css": "/crispsound/static/css/main.3a3ed3b7.chunk.css",
-    "main.js": "/crispsound/static/js/main.4c8dcf36.chunk.js",
-    "main.js.map": "/crispsound/static/js/main.4c8dcf36.chunk.js.map",
+    "main.js": "/crispsound/static/js/main.ce96efc4.chunk.js",
+    "main.js.map": "/crispsound/static/js/main.ce96efc4.chunk.js.map",
     "runtime-main.js": "/crispsound/static/js/runtime-main.784d7f63.js",
     "runtime-main.js.map": "/crispsound/static/js/runtime-main.784d7f63.js.map",
-    "static/js/2.ba957689.chunk.js": "/crispsound/static/js/2.ba957689.chunk.js",
-    "static/js/2.ba957689.chunk.js.map": "/crispsound/static/js/2.ba957689.chunk.js.map",
+    "static/js/2.0611d07b.chunk.js": "/crispsound/static/js/2.0611d07b.chunk.js",
+    "static/js/2.0611d07b.chunk.js.map": "/crispsound/static/js/2.0611d07b.chunk.js.map",
     "index.html": "/crispsound/index.html",
-    "precache-manifest.1b105ba3d5abb922246b7fb7a0ade63b.js": "/crispsound/precache-manifest.1b105ba3d5abb922246b7fb7a0ade63b.js",
+    "precache-manifest.922984a0e7bd0ce40b45bf975912a5b5.js": "/crispsound/precache-manifest.922984a0e7bd0ce40b45bf975912a5b5.js",
     "service-worker.js": "/crispsound/service-worker.js",
     "static/css/main.3a3ed3b7.chunk.css.map": "/crispsound/static/css/main.3a3ed3b7.chunk.css.map",
-    "static/js/2.ba957689.chunk.js.LICENSE": "/crispsound/static/js/2.ba957689.chunk.js.LICENSE"
+    "static/js/2.0611d07b.chunk.js.LICENSE": "/crispsound/static/js/2.0611d07b.chunk.js.LICENSE",
+    "static/media/listening.jpg": "/crispsound/static/media/listening.e4b61926.jpg",
+    "static/media/studythumb.png": "/crispsound/static/media/studythumb.9c9e0818.png"
   },
   "entrypoints": [
     "static/js/runtime-main.784d7f63.js",
-    "static/js/2.ba957689.chunk.js",
+    "static/js/2.0611d07b.chunk.js",
     "static/css/main.3a3ed3b7.chunk.css",
-    "static/js/main.4c8dcf36.chunk.js"
+    "static/js/main.ce96efc4.chunk.js"
   ]
 }

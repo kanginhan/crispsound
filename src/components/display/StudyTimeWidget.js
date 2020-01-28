@@ -1,29 +1,40 @@
 import React, { useState, useEffect } from "react";
 import Widget from "./Widget";
 import styled from "styled-components";
+import { useWindowSize } from "../../utils/hooks";
 
 const Time = styled.div`
   color: white;
   font-family: "Baloo Bhai", cursive;
-  font-size: 4vw;
+  font-size: ${props => `${props.font}px`};
 `;
 
 const defaultRatio = {
   xratio: 0.75,
-  yratio: 0.12,
-}
+  yratio: 0.12
+};
 
 const StudyTimeWidget = () => {
   const [startTime] = useState(new Date());
   const [studyTime, setStudyTime] = useState(0);
+  const size = useWindowSize();
+  const [font, setFont] = useState(0);
 
   useEffect(() => {
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       const studyTime = new Date().getTime() - startTime.getTime();
       setStudyTime(studyTime);
     }, 1000);
+
+    return () => clearInterval(intervalId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    const player_wrap = document.getElementById("player_wrap");
+    setFont(player_wrap.clientWidth * 0.055);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [size]);
 
   function getTimes(time) {
     let tmpSeconds = Math.floor(time / 1000);
@@ -48,7 +59,7 @@ const StudyTimeWidget = () => {
 
   return (
     <Widget type="studyTime" movable={true} defaultRatio={defaultRatio}>
-      <Time>{format(studyTime)}</Time>
+      <Time font={font}>{format(studyTime)}</Time>
     </Widget>
   );
 };

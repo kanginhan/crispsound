@@ -8,9 +8,9 @@ import Landing from "./components/Landing";
 function App() {
   return (
     <Provider>
-      <Route path="/" component={Landing} exact />
+      <Route path="/crispsound/" component={Landing} exact />
       <Route
-        path="/:id"
+        path="/crispsound/:id"
         render={() => (
           <Container>
             <Main></Main>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import context from "../../contexts";
 import styled from "styled-components";
 import { useWindowSize } from "../../utils/hooks";
@@ -14,7 +14,7 @@ const Panel = styled.div`
 
 const Icon = styled.i`
   color: white;
-  font-size: 3vw;
+  font-size: ${props => `${props.font}px`};
   cursor: pointer;
 
   &:hover {
@@ -29,15 +29,22 @@ const Icon = styled.i`
 
 const ControlPanel = () => {
   const { dispatch } = useContext(context);
+  const [font, setFont] = useState(0);
   const ref = useRef({ orientationType: window.screen.orientation.type });
   const size = useWindowSize();
 
   useEffect(() => {
+    //핸드폰 돌릴 때 전체화면 취소
     const orientationType = window.screen.orientation.type;
     if (orientationType !== ref.current.orientationType) {
       ref.current.orientationType = orientationType;
       isFullscreen() && toggleFullScreen();
     }
+
+    //아이콘 크기 변경
+    const display = document.getElementById("display");
+    setFont(display.clientWidth * 0.04);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [size]);
 
@@ -84,21 +91,24 @@ const ControlPanel = () => {
 
   return (
     <Panel>
-      <Icon className="material-icons">playlist_play</Icon>
-      <Icon className="material-icons" style={{ color: "#ff5722" }}>
+      <Icon className="material-icons" font={font}>
+        playlist_play
+      </Icon>
+      <Icon className="material-icons" font={font} style={{ color: "#ff5722" }}>
         favorite
       </Icon>
       <Icon
         className="material-icons"
+        font={font}
         onClick={toggleFullScreen}
         id="fullscreenBtn"
       >
         fullscreen
       </Icon>
-      <Icon className="material-icons" onClick={skipNext}>
+      <Icon className="material-icons" font={font} onClick={skipNext}>
         skip_next
       </Icon>
-      <Icon className="material-icons" onClick={skipPrev}>
+      <Icon className="material-icons" font={font} onClick={skipPrev}>
         skip_previous
       </Icon>
     </Panel>

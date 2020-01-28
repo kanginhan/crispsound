@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 
 const Header = styled.div`
   height: 40%;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url(${backImg}) no-repeat;
   background-size: cover;
   background-position-y: center;
@@ -114,7 +114,7 @@ const CardName = styled.div`
   align-items: center;
   font-family: "Hind Siliguri", sans-serif;
   font-weight: 600;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.15rem;
   font-size: 0.8rem;
 `;
 const CardTags = styled.div`
@@ -123,7 +123,7 @@ const CardTags = styled.div`
 `;
 
 const lists = [
-  { id: "study", name: "STUDY", tags: "#집중 #잔잔한", img: studythumb }
+  { id: "study", name: "STUDY SOUND", tags: "#집중력 #편안한", img: studythumb }
 ];
 
 const Landing = ({ history }) => {
@@ -131,8 +131,8 @@ const Landing = ({ history }) => {
     <Wrapper>
       <Header>
         <Titles>
-          <SubTitle>무료로 다양한 음악을 들을 수 있는</SubTitle>
-          <Title>CRISPY LIST</Title>
+          <SubTitle>음악과 함께 하고 싶을 땐</SubTitle>
+          <Title>CRISP SOUND</Title>
         </Titles>
         <Expander>
           백그라운드에서 재생하는 방법
@@ -143,7 +143,7 @@ const Landing = ({ history }) => {
         <PlayList>
           {lists.map(item => (
             <CardWrapper key={item.id}>
-              <Card onClick={() => history.push(`/${item.id}`)}>
+              <Card onClick={() => history.push(`/crispsound/${item.id}`)}>
                 <CardInner>
                   <ThumbNail>
                     <img

@@ -104,22 +104,7 @@ const initialMessages = [
     key: uuid(),
     nickName: "CRISPSOUND",
     time: new Date(),
-    contents: (
-      <a
-        href="https://www.digitaltrends.com/mobile/how-to-play-youtube-in-the-background/"
-        className="title"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Tip: How to listen in mobile background
-      </a>
-    )
-  },
-  {
-    key: uuid(),
-    nickName: "CRISPSOUND",
-    time: new Date(),
-    contents: "Enjoy music with others to help you concentrate and relax"
+    contents: "집중력을 높여주는 음악으로 최적의 환경을 만들어 보세요"
   }
 ];
 

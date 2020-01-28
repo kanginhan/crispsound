@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   font-weight: 800;
-  font-size: 2rem;
+  font-size: 1.7rem;
   cursor: pointer;
 
   ${media.mobile`font-size: 1rem;`}
@@ -28,7 +28,7 @@ function Header() {
   return (
     <Wrapper>
       <Title className="handle" onClick={() => window.history.go("/")}>
-        STUDY SOUND
+        STUDY <span className="subTitle">SOUND</span>
       </Title>
       <WidgetSelectors>
         {widgetList.map((item, i) => (

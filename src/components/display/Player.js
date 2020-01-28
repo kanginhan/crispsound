@@ -15,7 +15,7 @@ const YTPlayer = styled.div`
 
 const Player = ({ children }) => {
   const { video, dispatch } = useContext(context);
-  const ref = useRef({player: null});
+  const ref = useRef({ player: null });
 
   const onPlayerReady = e => {
     e.target.playVideo();
@@ -28,6 +28,7 @@ const Player = ({ children }) => {
   }
 
   useEffect(() => {
+    debugger;
     new Promise(resolve => {
       //api load
       const tag = document.createElement("script");

@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from "react";
 import playlist from "../utils/playlist";
-import { widgetList } from "../utils/consts";
+import { widgetList, channels } from "../utils/consts";
+import { shuffle } from "../utils/utils";
 
 const Context = createContext();
 
@@ -53,6 +54,19 @@ const videoReducer = (state, action) => {
   }
 };
 
+const channelReducer = (state, action) => {
+  switch (action.type) {
+    case "SET":
+      const channel = channels.find(x => x.id === action.id);
+      channel.playList = shuffle(channel.playList);
+      return channel;
+    case "CLEAR":
+      return null;
+    default:
+      return state;
+  }
+};
+
 let initialWidget = {};
 widgetList.forEach(item => {
   try {
@@ -69,13 +83,16 @@ const Provider = ({ children }) => {
   const [video, videoDispatch] = useReducer(videoReducer, {
     currentVideo: 0
   });
+  const [channel, channelDispatch] = useReducer(channelReducer, null);
 
   const value = {
     widget,
     video,
+    channel,
     dispatch: {
       widget: widetDispatch,
-      video: videoDispatch
+      video: videoDispatch,
+      channel: channelDispatch
     }
   };
 

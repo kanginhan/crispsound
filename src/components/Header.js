@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import WidgetSelector from "./header/WidgetSelector";
 import media from "../utils/media";
 import { widgetList } from "../utils/consts";
+import context from "../contexts";
 
 const Wrapper = styled.div`
   display: flex;
@@ -25,10 +26,12 @@ const WidgetSelectors = styled.div`
 `;
 
 function Header() {
+  const {channel} = useContext(context);
+
   return (
     <Wrapper>
       <Title className="handle" onClick={() => window.history.go("/")}>
-        STUDY <span className="subTitle">SOUND</span>
+        {channel.title} <span className="subTitle">SOUND</span>
       </Title>
       <WidgetSelectors>
         {widgetList.map((item, i) => (

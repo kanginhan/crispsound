@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import backImg from "../static/listening.jpg";
-import studythumb from "../static/studythumb.png";
+import {channels} from "../utils/consts";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -12,7 +11,7 @@ const Wrapper = styled.div`
 const Header = styled.div`
   height: 40%;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(${backImg}) no-repeat;
+    url("/images/listening.jpg") no-repeat;
   background-size: cover;
   background-position-y: center;
   display: flex;
@@ -122,10 +121,6 @@ const CardTags = styled.div`
   font-size: 0.6rem;
 `;
 
-const lists = [
-  { id: "study", name: "STUDY SOUND", tags: "#집중력 #편안한", img: studythumb }
-];
-
 const Landing = ({ history }) => {
   return (
     <Wrapper>
@@ -141,7 +136,7 @@ const Landing = ({ history }) => {
       </Header>
       <Contents>
         <PlayList>
-          {lists.map(item => (
+          {channels.map(item => (
             <CardWrapper key={item.id}>
               <Card onClick={() => history.push(`/crispsound/${item.id}`)}>
                 <CardInner>

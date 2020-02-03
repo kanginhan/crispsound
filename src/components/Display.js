@@ -25,7 +25,7 @@ const Container = styled.div`
   height: 100%;
 `;
 
-const AA = styled.div`
+const FlexContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
@@ -37,14 +37,14 @@ function Display() {
   return (
     <Wrapper>
       <Container id="display">
-        <AA>
+        <FlexContainer>
           <Player>
             <ChatWidget />
             <ClockWidget />
             <StudyTimeWidget />
           </Player>
           <ControlPanel />
-        </AA>
+        </FlexContainer>
       </Container>
     </Wrapper>
   );

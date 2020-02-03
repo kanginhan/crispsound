@@ -1,7 +1,6 @@
 import React, { useEffect, useContext, useRef } from "react";
 import styled from "styled-components";
 import context from "../../contexts";
-import playlist from "../../utils/playlist";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -14,8 +13,8 @@ const YTPlayer = styled.div`
 `;
 
 const Player = ({ children }) => {
-  const { video, dispatch } = useContext(context);
-  const ref = useRef({ player: null });
+  const { video, channel, dispatch } = useContext(context);
+  const ref = useRef({ player: null, channel: null });
 
   const onPlayerReady = e => {
     e.target.playVideo();
@@ -28,18 +27,23 @@ const Player = ({ children }) => {
   }
 
   useEffect(() => {
-    debugger;
+    if(!channel){
+      return;
+    }
+    
+    ref.current.channel = channel;
+    let tag, firstScriptTag;
     new Promise(resolve => {
       //api load
-      const tag = document.createElement("script");
+      tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
-      const firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag = document.getElementsByTagName("script")[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
       window.onYouTubeIframeAPIReady = () => resolve(window.YT);
     }).then(YT => {
       //create iframe player
       new YT.Player("player", {
-        videoId: playlist[video.currentVideo],
+        videoId: ref.current.channel.playList[video.currentVideo],
         playerVars: {
           fs: 0,
           loop: 1
@@ -50,13 +54,18 @@ const Player = ({ children }) => {
         }
       });
     });
-  }, []);
+
+    return () => {
+      firstScriptTag.parentNode.removeChild(tag);
+      window.YT = null;
+    }
+  }, [channel]);
 
   useEffect(() => {
     if (video.player) {
-      video.player.loadVideoById(playlist[video.currentVideo]);
+      video.player.loadVideoById(ref.current.channel.playList[video.currentVideo]);
     }
-  }, [video.currentVideo]);
+  }, [video.player, video.currentVideo]);
 
   return (
     <Wrapper id="player_wrap">

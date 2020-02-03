@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import Widget from "./Widget";
 import styled from "styled-components";
 import Moment from "react-moment";
 import uuid from "uuid/v1";
 import rn from "random";
+import context from "../../contexts";
 
 const ChatPanel = styled.div`
   padding-bottom: 10%;
@@ -99,16 +100,14 @@ const MWrapper = styled.div`
   padding-top: 5px;
 `;
 
-const initialMessages = [
-  {
+const ChatWidget = () => {
+  const {channel} = useContext(context);
+  const initialMessages = channel.initialMessages.map(msg => ({
     key: uuid(),
     nickName: "CRISPSOUND",
     time: new Date(),
-    contents: "집중력을 높여주는 음악으로 최적의 환경을 만들어 보세요"
-  }
-];
-
-const ChatWidget = () => {
+    contents: msg
+  }));
   const [nickName, _setNickName] = useState(localStorage.nickName);
   const [messages, _setMessages] = useState(initialMessages);
   const [connected, _setConnected] = useState(false);
@@ -128,7 +127,7 @@ const ChatWidget = () => {
 
   useEffect(() => {
     // eslint-disable-next-line no-undef
-    ref.current.socket = (window.io && window.io("http://localhost:8080")) || {
+    ref.current.socket = (window.io && window.io("http://ec2-52-79-250-14.ap-northeast-2.compute.amazonaws.com:8080")) || {
       on: () => {}
     };
 

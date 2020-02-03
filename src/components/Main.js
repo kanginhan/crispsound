@@ -26,7 +26,7 @@ function Main({match}) {
     return () => {
       dispatch.channel({type: "CLEAR"});
     }
-  }, [dispatch, match.params.id]);
+  }, []);
 
   if(!channel){
     return null;

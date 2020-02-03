@@ -6,7 +6,7 @@ export const channels = [
     name: "STUDY SOUND",
     title: "STUDY",
     tags: "#집중력 #편안한",
-    img: "/images/studythumb.png",
+    img: "/crispsound/images/studythumb.png",
     playList: ["hHW1oY26kxQ", "d9KosXZf7ug", "8IXDbVK138w", "1xCfNv6mgWQ"],
     initialMessages: ["집중력을 높여주는 음악으로 최적의 환경을 만들어 보세요"]
   },
@@ -15,7 +15,7 @@ export const channels = [
     name: "노동요",
     title: "WORKING",
     tags: "#돈벌자 #능률상승",
-    img: "/images/workingthumb.jpg",
+    img: "/crispsound/images/workingthumb.jpg",
     playList: [
       "TpPwI_Lo0YY",
       "UcnjZfxX5Ss",

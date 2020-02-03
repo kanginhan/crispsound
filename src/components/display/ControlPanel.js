@@ -28,7 +28,7 @@ const Icon = styled.i`
 `;
 
 const ControlPanel = () => {
-  const { dispatch } = useContext(context);
+  const { channel, dispatch } = useContext(context);
   const [font, setFont] = useState(0);
   const ref = useRef({ orientationType: window.screen.orientation.type });
   const size = useWindowSize();
@@ -82,11 +82,11 @@ const ControlPanel = () => {
   };
 
   const skipNext = () => {
-    dispatch.video({ type: "NEXT" });
+    dispatch.video({ type: "NEXT", playList: channel.playList });
   };
 
   const skipPrev = () => {
-    dispatch.video({ type: "PREV" });
+    dispatch.video({ type: "PREV", playList: channel.playList });
   };
 
   return (

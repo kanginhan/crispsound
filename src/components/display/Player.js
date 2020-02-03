@@ -23,7 +23,7 @@ const Player = ({ children }) => {
   };
 
   function onPlayerError(e) {
-    dispatch.video({ type: "NEXT" });
+    dispatch.video({ type: "NEXT", playList: channel.playList });
   }
 
   useEffect(() => {

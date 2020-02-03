@@ -1,5 +1,4 @@
 import React, { createContext, useReducer } from "react";
-import playlist from "../utils/playlist";
 import { widgetList, channels } from "../utils/consts";
 import { shuffle } from "../utils/utils";
 
@@ -36,19 +35,21 @@ const videoReducer = (state, action) => {
         player: action.player
       };
     case "NEXT":
-      console.log("next");
-      console.log((state.currentVideo + 1 + playlist.length) % playlist.length);
       return {
         ...state,
         currentVideo:
-          (state.currentVideo + 1 + playlist.length) % playlist.length
+          (state.currentVideo + 1 + action.playList.length) %
+          action.playList.length
       };
     case "PREV":
       return {
         ...state,
         currentVideo:
-          (state.currentVideo - 1 + playlist.length) % playlist.length
+          (state.currentVideo - 1 + action.playList.length) %
+          action.playList.length
       };
+    case "CLEAR":
+      return { currentVideo: 0 };
     default:
       return state;
   }

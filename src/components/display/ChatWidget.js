@@ -76,6 +76,7 @@ const NickName = styled.div`
   color: #696969;
   height: 0.9rem;
   line-height: 0.9rem;
+  font-family: 'Jua', sans-serif;
 `;
 
 const MTime = styled.div`

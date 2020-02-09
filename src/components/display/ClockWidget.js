@@ -21,7 +21,7 @@ const ClockWidget = () => {
 
   useEffect(() => {
     const player_wrap = document.getElementById("player_wrap");
-    setFont(player_wrap.clientWidth * 0.058);
+    setFont(player_wrap.clientWidth * 0.045);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [size]);
 

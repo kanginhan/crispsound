@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 const Header = styled.div`
   height: 40%;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("/crispsound/images/listening.jpg") no-repeat;
+    url("/crispsound/images/listening.png") no-repeat;
   background-size: cover;
   background-position-y: center;
   display: flex;

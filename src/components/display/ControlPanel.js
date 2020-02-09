@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import context from "../../contexts";
 import styled from "styled-components";
 import { useWindowSize } from "../../utils/hooks";
+import media from "../../utils/media";
 
 const Panel = styled.div`
   display: flex;
@@ -10,6 +11,11 @@ const Panel = styled.div`
   align-items: center;
   background-color: black;
   padding: 20px 5px;
+
+  ${media.mobile`
+    flex-direction: row;
+    padding: 5px 5px;
+  `}
 `;
 
 const Icon = styled.i`
@@ -22,9 +28,9 @@ const Icon = styled.i`
     transition: all 0.2s linear;
   }
 
-  @media (min-width: 1300px) {
-    font-size: 40px;
-  }
+  ${media.mobile`
+    font-size: ${props => `${(props.font * 5) / 4}px`};
+  `}
 `;
 
 const ControlPanel = () => {
@@ -105,11 +111,11 @@ const ControlPanel = () => {
       >
         fullscreen
       </Icon>
-      <Icon className="material-icons" font={font} onClick={skipNext}>
-        skip_next
-      </Icon>
       <Icon className="material-icons" font={font} onClick={skipPrev}>
         skip_previous
+      </Icon>
+      <Icon className="material-icons" font={font} onClick={skipNext}>
+        skip_next
       </Icon>
     </Panel>
   );

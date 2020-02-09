@@ -26,11 +26,17 @@ const Player = ({ children }) => {
     dispatch.video({ type: "NEXT", playList: channel.playList });
   }
 
+  function onPlayerStateChange(e) {
+    if (e.data === window.YT.PlayerState.ENDED) {
+      dispatch.video({ type: "NEXT", playList: channel.playList });
+    }
+  }
+
   useEffect(() => {
-    if(!channel){
+    if (!channel) {
       return;
     }
-    
+
     ref.current.channel = channel;
     let tag, firstScriptTag;
     new Promise(resolve => {
@@ -50,6 +56,7 @@ const Player = ({ children }) => {
         },
         events: {
           onReady: onPlayerReady,
+          onStateChange: onPlayerStateChange,
           onError: onPlayerError
         }
       });
@@ -58,12 +65,14 @@ const Player = ({ children }) => {
     return () => {
       firstScriptTag.parentNode.removeChild(tag);
       window.YT = null;
-    }
+    };
   }, [channel]);
 
   useEffect(() => {
     if (video.player) {
-      video.player.loadVideoById(ref.current.channel.playList[video.currentVideo]);
+      video.player.loadVideoById(
+        ref.current.channel.playList[video.currentVideo]
+      );
     }
   }, [video.player, video.currentVideo]);
 

@@ -14,16 +14,16 @@ const defaultRatio = {
   yratio: 0.12
 };
 
-const StudyTimeWidget = () => {
+const PlayingTimeWidget = () => {
   const [startTime] = useState(new Date());
-  const [studyTime, setStudyTime] = useState(0);
+  const [playingTime, setPlayingTime] = useState(0);
   const size = useWindowSize();
   const [font, setFont] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const studyTime = new Date().getTime() - startTime.getTime();
-      setStudyTime(studyTime);
+      const playingTime = new Date().getTime() - startTime.getTime();
+      setPlayingTime(playingTime);
     }, 1000);
 
     return () => clearInterval(intervalId);
@@ -32,7 +32,7 @@ const StudyTimeWidget = () => {
 
   useEffect(() => {
     const player_wrap = document.getElementById("player_wrap");
-    setFont(player_wrap.clientWidth * 0.055);
+    setFont(player_wrap.clientWidth * 0.045);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [size]);
 
@@ -58,10 +58,10 @@ const StudyTimeWidget = () => {
   }
 
   return (
-    <Widget type="studyTime" movable={true} defaultRatio={defaultRatio}>
-      <Time font={font}>{format(studyTime)}</Time>
+    <Widget type="playingTime" movable={true} defaultRatio={defaultRatio}>
+      <Time font={font}>{format(playingTime)}</Time>
     </Widget>
   );
 };
 
-export default StudyTimeWidget;
+export default PlayingTimeWidget;

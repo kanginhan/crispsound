@@ -1,4 +1,4 @@
-export const widgetList = ["chat", "clock", "studyTime"];
+export const widgetList = ["chat", "clock", "playingTime"];
 
 export const channels = [
   {

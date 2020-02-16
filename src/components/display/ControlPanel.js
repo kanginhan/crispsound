@@ -36,14 +36,14 @@ const Icon = styled.i`
 const ControlPanel = () => {
   const { channel, dispatch } = useContext(context);
   const [font, setFont] = useState(0);
-  const ref = useRef({ orientationType: window.screen.orientation.type });
+  const ref = useRef({ isPortrait: window.matchMedia("(orientation: portrait)").matches });
   const size = useWindowSize();
 
   useEffect(() => {
     //핸드폰 돌릴 때 전체화면 취소
-    const orientationType = window.screen.orientation.type;
-    if (orientationType !== ref.current.orientationType) {
-      ref.current.orientationType = orientationType;
+    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+    if (isPortrait !== ref.current.isPortrait) {
+      ref.current.isPortrait = isPortrait;
       isFullscreen() && toggleFullScreen();
     }
 

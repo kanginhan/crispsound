@@ -127,7 +127,7 @@ const Landing = ({ history }) => {
       <Header>
         <Titles>
           <SubTitle>음악과 함께 하고 싶을 땐</SubTitle>
-          <Title>CRISP SOUND</Title>
+          <Title>WAVUP</Title>
         </Titles>
         <Expander>
           백그라운드에서 재생하는 방법
